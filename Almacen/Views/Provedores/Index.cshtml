@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Almacen.Models.Provedores>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Provedores</h1>
+
+<p>
+    <a asp-action="Create">Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.empresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contacto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.empresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contacto)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.provedorId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.provedorId">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.provedorId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
